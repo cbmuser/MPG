@@ -24,7 +24,7 @@ Use three BC337 (NPN) to switch Axis (1 Port toggle) and Feedrate (2 Ports mux):
  GND    : 0V          
  GND also to GND under P15
  
- Arduino
+ # Arduino
  
  Digital 2, 3, 6 : switching transistors (see source)
  Digital 4,5 : Inputs for Buttons Axis and Feedrate to GND
