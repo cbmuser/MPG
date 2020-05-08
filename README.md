@@ -16,13 +16,14 @@ Use three BC337 (NPN) to switch Axis (1 Port toggle) and Feedrate (2 Ports mux):
                      |
                 Arduino-Port
              
- Jogwheel
+ #Jogwheel
  Mach3
- A low  : Pin 10
- B high : Pin 11
- VCC    : PC 5V
- GND    : 0V
- GND also to GND under P15
+  A low  : Pin 10
+  B high : Pin 11
+  VCC    : PC 5V
+  GND    : 0V
+  GND also to GND under P15
+  
  
   
  # Arduino
