@@ -16,7 +16,8 @@ Use three BC337 (NPN) to switch Axis (1 Port toggle) and Feedrate (2 Ports mux):
                      |
                 Arduino-Port
              
- #Jogwheel
+ # Jogwheel
+ 
  Mach3
 
 A low  : Pin 10
