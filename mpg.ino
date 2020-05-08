@@ -1,7 +1,6 @@
 #include <LiquidCrystal_I2C.h>
 LiquidCrystal_I2C lcd(0x3f, 20, 2);
 
-float feedrate;
 int axis  = 1;
 int feed = 4
 ;
