@@ -1,0 +1,74 @@
+############################################
+# Jog Pendant 
+# for LINUXCNC 2.7.15 
+# Updated: May 2020
+# Parport-Pins: 10,11,12,13,15
+# Used: parport1
+# Useful for cheap MACH3 Parport-Adapters 
+#############################################
+loadrt encoder num_chan=1
+loadrt mux4 count=1
+addf encoder.capture-position servo-thread
+addf encoder.update-counters base-thread
+addf mux4.0 servo-thread
+
+encoder.0.counter-mode = false
+
+loadrt updown 
+addf updown.0 servo-thread
+
+loadrt select8 
+addf select8.0 servo-thread
+
+# If your MPG outputs a quadrature signal per click set x4 to 1
+# If your MPG puts out 1 pulse per click set x4 to 0
+setp encoder.0.x4-mode 0
+
+# For velocity mode, set to 1
+# In velocity mode the axis stops when the dial is stopped
+# even if that means the commanded motion is not completed,
+# For position mode (the default), set to 0
+# In position mode the axis will move exactly jog-scale
+# units for each count, regardless of how long that might take,
+
+setp axis.0.jog-vel-mode 0
+setp axis.1.jog-vel-mode 0
+setp axis.2.jog-vel-mode 0
+
+# inputs multiplexed
+net scale1 mux4.0.sel0 <= parport.1.pin-12-in
+net scale2 mux4.0.sel1 <= parport.1.pin-13-in
+
+# This sets the scale that will be used based on the input to the mux4
+setp mux4.0.in0 0.1
+setp mux4.0.in1 0.01
+setp mux4.0.in2 0.001
+setp mux4.0.in3 1.0
+
+net pend-scale <= mux4.0.out
+net pend-scale => axis.0.jog-scale 
+net pend-scale => axis.1.jog-scale
+net pend-scale => axis.2.jog-scale
+
+# Button to switch axis x,y or z
+net jog-button <= updown.0.countup <= parport.1.pin-15-in-not
+net jog-choice updown.0.count => select8.0.sel
+net jog-x axis.0.jog-enable <= select8.0.out0  
+net jog-y axis.1.jog-enable <= select8.0.out1  
+net jog-z axis.2.jog-enable <= select8.0.out2  
+
+setp updown.0.max 2
+setp updown.0.min 0
+setp updown.0.wrap 1
+
+# jogwheel inputs 
+net mpg-a encoder.0.phase-A <= parport.1.pin-10-in
+net mpg-b encoder.0.phase-B <= parport.1.pin-11-in
+
+# The encoder output counts to the axis. Only the selected axis will move.
+net encoder-counts <= encoder.0.counts
+net encoder-counts => axis.0.jog-counts 
+net encoder-counts => axis.1.jog-counts
+net encoder-counts => axis.2.jog-counts
+
+
