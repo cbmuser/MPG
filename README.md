@@ -34,7 +34,7 @@ GND also to GND under P15
   
  # Arduino
  
- Digital 2, 3, 6 : switching transistors (see source)
+ Digital 2, 3, 6 : switching transistors (outputs, see source)
  
  Digital 4,5 : Inputs for Buttons Axis and Feedrate to GND
  
