@@ -34,6 +34,7 @@ GND also to GND under P15
  # Arduino
  
  Digital 2, 3, 6 : switching transistors (see source)
+ 
  Digital 4,5 : Inputs for Buttons Axis and Feedrate to GND
  
  **Couple all GND, Arduino and Mach3 together !**
