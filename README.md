@@ -1,22 +1,20 @@
 # MPG
 
-# MPG
-
 ![](http://www.cbmhardware.de/git/axis_arduino.jpg)
 
 
 Use three BC337 (NPN) to switch Axis (1 Port toggle) and Feedrate (2 Ports mux): 
  
 
-*     Mach3 Port ---c b e ---[2k2]--GND
-*                     |
-*                     _
-*                     2
-*                     k
-*                     2 
-*                     -
-*                     |
-*                Arduino-Port
+     Mach3 Port ---c b e ---[2k2]--GND
+                     |
+                     _
+                     2
+                     k
+                     2 
+                     -
+                     |
+                Arduino-Port
              
  Jogwheel
  Mach3
