@@ -31,6 +31,10 @@ Use three BC337 (NPN) to switch Axis (1 Port toggle) and Feedrate (2 Ports mux):
  
  **Couple all GND, Arduino and Mach3 together !**
  
+ The blue display is 1602 at I²C.
+ 
+ 
+ 
 ![]( http://www.cbmhardware.de/git/axis.jpg)
 
 It works !
