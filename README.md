@@ -28,7 +28,7 @@ VCC    : PC 5V
 
 GND    : 0V
 
-GND also to GND under P15
+GND also to GND near P15
   
  
   
