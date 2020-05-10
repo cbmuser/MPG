@@ -2,11 +2,10 @@
 LiquidCrystal_I2C lcd(0x3f, 20, 2);
 
 int axis  = 1;
-int feed = 4
-;
-char axis_display = 'X';
-int button1 = 0;
-int button2 = 0;
+int feed = 4;
+char axis_display;
+int button1;
+int button2;
 
 void setup() 
  {
