@@ -14,7 +14,7 @@ void setup()
   lcd.setCursor(0, 0);
   lcd.print("AXIS: X         ");
   lcd.setCursor(0, 1);
-  lcd.print("FEEDRATE: 1.000");
+  lcd.print("STEPRATE: 1.000");
   pinMode(2, OUTPUT);
   pinMode(3, OUTPUT);
   pinMode(4, INPUT_PULLUP);
@@ -34,7 +34,7 @@ char toggle_axis(int axis)
   }
  }
 
-void toggle_feedrate(int feed)
+void toggle_steprate(int feed)
  {
   switch (feed) {
     case 1: lcd.setCursor(10, 1); lcd.print("0.100"); digitalWrite(2,HIGH); digitalWrite(3,HIGH);
@@ -66,7 +66,8 @@ void loop()
     digitalWrite(6,HIGH);delay(200);
     digitalWrite(6,LOW);delay(200);
 
-    toggle_axis(axis);
+   toggle_axis(axis);
+
     lcd.setCursor(6 ,0 );
     lcd.print(axis_display);
   }
@@ -77,7 +78,7 @@ void loop()
     delay (250);
     feed++;
     if (feed == 5) { feed = 1; }
-    toggle_feedrate(feed);
+    toggle_steprate(feed);
  
   }
 
